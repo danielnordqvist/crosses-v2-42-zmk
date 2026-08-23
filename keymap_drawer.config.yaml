@@ -1,6 +1,6 @@
 draw_config:
   append_colon_to_layer_header: false
-  draw_key_sides: true
+  draw_key_sides: false
 
   svg_extra_style: |
     svg.keymap {
