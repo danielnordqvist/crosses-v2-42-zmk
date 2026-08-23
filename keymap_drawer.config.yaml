@@ -4,11 +4,11 @@ draw_config:
 
   svg_extra_style: |
     svg.keymap {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 10px;
+      SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+      font-size: 16px;
       font-weight: bold;
     }
- 
+
     text.label {
       stroke: #dfdfde;
       stroke-width: 12;
@@ -36,7 +36,6 @@ draw_config:
 
     .shifted {
       translate: -9px 3px;
-      opacity: 0.3;
     }
 
     .toggle.shifted {
@@ -52,7 +51,7 @@ draw_config:
     }
     .text_with_symbol.shifted {
       translate: 8px 13px;
-      font-size: 8px;
+      font-size: 12px;
       opacity: 1.0;
     } 
 
@@ -64,7 +63,7 @@ draw_config:
       font-size: 8px;
       opacity: 1.0;
     }
-  glyph_tap_size: 22 
+  glyph_tap_size: 22
   glyph_hold_size: 16
   glyph_shifted_size: 16
   glyphs: {}
@@ -73,22 +72,30 @@ parse_config:
   skip_binding_parsing: false
   raw_binding_map:
     "&none":
-      tap: $$mdi:minus-circle-outline$$
+      tap: ""
+      type: none
+    "&trans":
+      tap: ""
       type: none
     "&bt BT_SEL 0":
-      tap: $$mdi:bluetooth-connect$$
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
       hold: 1
     "&bt BT_SEL 1":
-      tap: $$mdi:bluetooth-connect$$
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
       hold: 2
     "&bt BT_SEL 2":
-      tap: $$mdi:bluetooth-connect$$
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
       hold: 3
     "&bt BT_SEL 3":
-      tap: $$mdi:bluetooth-connect$$
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
       hold: 4
     "&bt BT_SEL 4":
-      tap: $$mdi:bluetooth-connect$$
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
       hold: 5
     "&mkp LCLK":
       tap: $$mdi:mouse-left-click$$
@@ -111,6 +118,20 @@ parse_config:
     "&dpi_cycle_right 1":
       tap: $$mdi:plus-minus-variant$$
       hold: "DPI Cycle"
+    '&m_tilde': '~'
+    '&m_grave': '`'
+    '&m_caret': '^'
+    '&m_dir_up': '../'
+    '&m_dir_home': '~/'
+    '&kp LG(Z)': $$mdi:undo$$
+    '&kp LG(C)': $$mdi:content-copy$$
+    '&kp LG(V)': $$mdi:content-paste$$
+    '&kp LG(X)': $$mdi:content-cut$$
+    '&kp LG(F)': $$mdi:file-find-outline$$
+    '&kp LG(A)': $$mdi:select-all$$
+    '&kp LG(S)': $$mdi:content-save-outline$$
+    '&kp LG(N)': $$mdi:open-in-new$$
+    '&kp LS(TAB)': $$mdi:keyboard-tab-reverse$$
   sticky_label: $$mdi:gesture-tap-hold$$
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -131,7 +152,7 @@ parse_config:
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
     special_combinations: {}
-  zmk_remove_keycode_prefix: []
+  zmk_remove_keycode_prefix: [ "SV_" ]
   zmk_keycode_map:
     EXCLAMATION: '!'
     EXCL: '!'
@@ -178,11 +199,11 @@ parse_config:
     APOS: ''''
     DOUBLE_QUOTES: '"'
     DQT: '"'
-    COMMA: ','
+    COMMA: { t: ',', s: ';' }
     LESS_THAN: <
     LT: <
     PERIOD: .
-    DOT: .
+    DOT: { t: '.', s: ':' }
     GREATER_THAN: '>'
     GT: '>'
     LEFT_BRACKET: '['
@@ -220,6 +241,12 @@ parse_config:
     PG_DN: $$mdi:transfer-down$$
     BT_CLR: $$mdi:bluetooth-off$$
     BT_SEL: $$mdi:bluetooth-connect$$
+
+    A_RING: 'Å'
+    A_UMLAUT: 'Ä'
+    O_UMLAUT: 'Ö'
+    SECT: '§'
+    EURO: '€'
   zmk_combos: {}
   zmk_preamble: '#define KEYMAP_DRAWER'
-  zmk_additional_includes: []
+  zmk_additional_includes: [ "zmk-helpers/include" ]
