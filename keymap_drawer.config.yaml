@@ -272,7 +272,7 @@ parse_config:
     TAB: $$mdi:keyboard-tab$$
     SPACE: $$mdi:keyboard-space$$
     BSPC: $$mdi:backspace$$
-    DEL: $$mdi:delete$$
+    DEL: $$mdi:backspace-reverse$$
     LCTRL: $$mdi:apple-keyboard-control$$
     LALT: $$mdi:apple-keyboard-option$$
     LSHIFT: $$mdi:apple-keyboard-shift$$
@@ -289,9 +289,10 @@ parse_config:
     RIGHT: $$mdi:arrow-right-bold$$
     PG_UP: $$mdi:transfer-up$$
     PG_DN: $$mdi:transfer-down$$
-    BT_CLR: $$mdi:bluetooth-off$$
     BT_SEL: $$mdi:bluetooth-connect$$
-    TMUX: $$mdi:terminal$$
+    BT_CLR:
+      tap: $$mdi:bluetooth$$
+      hold: "clear"
 
     A_RING: 'Å'
     A_UMLAUT: 'Ä'
