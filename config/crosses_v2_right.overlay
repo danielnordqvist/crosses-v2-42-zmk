@@ -1,8 +1,0 @@
-&zip_central_ball {
-    cursor {
-        label = "Cursor";
-        input-processors 
-            = <&zip_temp_layer 4 1000>
-            , <&zip_report_rate_limit 2>;
-    };
-};
