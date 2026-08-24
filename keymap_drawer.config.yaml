@@ -106,6 +106,12 @@ parse_config:
     "&mkp RCLK":
       tap: $$mdi:mouse-right-click$$
       hold: "right"
+    "&mkp MB4":
+      tap: $$mdi:mouse$$
+      hold: "back"
+    "&mkp MB5":
+      tap: $$mdi:mouse$$
+      hold: "fwd"
     "&studio_unlock":
       tap: $$mdi:lock-open$$
       hold: "unlock"
@@ -132,6 +138,8 @@ parse_config:
     '&kp LG(S)': $$mdi:content-save-outline$$
     '&kp LG(N)': $$mdi:open-in-new$$
     '&kp LS(TAB)': $$mdi:keyboard-tab-reverse$$
+    '&kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS': $$mdi:apps$$
+    '&kp C_AC_DESKTOP_SHOW_ALL_WINDOWS': $$mdi:view-quilt$$
   sticky_label: $$mdi:gesture-tap-hold$$
   toggle_label: toggle
   tap_toggle_label: tap-toggle

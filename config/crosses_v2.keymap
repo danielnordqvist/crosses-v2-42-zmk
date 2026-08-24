@@ -13,8 +13,9 @@
 #define SYM     1
 #define NUM     2
 #define NAV     3
-#define MOUSE   4
-#define FN      5
+#define FN      4
+#define CONFIG  5
+#define MOUSE   6
 
 #define M_FIND  LG(F)
 #define M_UNDO  LG(Z)
@@ -53,7 +54,6 @@
         /*
         * Sticky key settings
         */
-
         sk_mod: sk_mod {
             compatible = "zmk,behavior-sticky-key";
             label = "SK_MOD";
@@ -66,7 +66,6 @@
         /*
         * Homerow mods - left hand
         */
-
         hml: homerow_mod_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -88,7 +87,6 @@
         /*
         * Homerow mods - right hand
         */
-
         hmr: homerow_mod_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HMR";
@@ -131,10 +129,10 @@
             bindings = <&kp END>, <&kp>;
         };
         */
+
         /*
         * Mod morphs
         */
-
         sqt_quot: sqt_quot {
             compatible = "zmk,behavior-mod-morph";
             label = "SQT_QUOT";
@@ -143,12 +141,51 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        
         smart_shft: smart_shft {
             compatible = "zmk,behavior-mod-morph";
             label = "SMART_SHIFT";
             #binding-cells = <0>;
             bindings = <&sk LSHIFT>, <&caps_word>;
             mods = <(MOD_LSFT)>;
+        };
+        
+        /*
+        * Bluetooth Macros
+        */
+        bt_profile1: bt_profile1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 0>;
+            label = "BT_PROFILE1";
+        };
+
+        bt_profile2: bt_profile2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 1>;
+            label = "BT_PROFILE2";
+        };
+
+        bt_profile3: bt_profile3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 2>;
+            label = "BT_PROFILE3";
+        };
+
+        bt_profile4: bt_profile4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 3>;
+            label = "BT_PROFILE4";
+        };
+
+        bt_profile5: bt_profile5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 4>;
+            label = "BT_PROFILE5";
         };
     };
 
@@ -158,6 +195,12 @@
             if-layers = <SYM NAV>;
             then-layer = <FN>;
         };
+        /*
+        conf_layer {
+            if-layers = <SYM NAV NUM>;
+            then-layer = <CONFIG>;
+        };
+        */
     };
 
     keymap {
@@ -165,61 +208,71 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-                &kp TAB   &kp Q          &kp W         &kp F        &kp P           &kp B             &kp J        &kp L          &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
-                &none     &hml LSHIFT A  &hml LCTRL R  &hml LALT S  &hml LCMD T     &kp G             &kp M        &hmr RCMD N    &hmr RALT E   &hmr RCTRL I  &hmr RSHIFT O  &kp SV_O_UMLAUT
-                &none     &kp Z          &kp X         &kp C        &kp D           &kp V             &kp K        &kp H          &kp SV_COMMA  &kp SV_DOT    &kp SV_MINUS   &sqt_quot
-                                                       &lt SYM ESC  &lt NUM LSHIFT  &lt NAV TMUX      &lt NAV RET  &lt NUM SPACE  &lt SYM BSPC
+                &none     &kp Q          &kp W         &kp F        &kp P        &kp B             &kp J        &kp L          &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
+                &none     &hml LSHIFT A  &hml LCTRL R  &hml LALT S  &hml LCMD T  &kp G             &kp M        &hmr RCMD N    &hmr RALT E   &hmr RCTRL I  &hmr RSHIFT O  &kp SV_O_UMLAUT
+                &none     &kp Z          &kp X         &kp C        &kp D        &kp V             &kp K        &kp H          &kp SV_COMMA  &kp SV_DOT    &kp SV_MINUS   &sqt_quot
+                                                       &lt SYM ESC  &lt NUM TAB  &lt NAV TMUX      &lt NAV RET  &lt NUM SPACE  &lt SYM BSPC
             >;
         };
 
         sym_layer {
             display-name = "SYM";
             bindings = <
-                &trans  &kp SV_GRAVE          &kp SV_LT           &kp SV_GT          &kp SV_MINUS           &kp SV_PIPE        &kp SV_CARET  &kp SV_LBRC   &kp SV_RBRC   &kp SV_DLLR  &kp SV_EXCL   &trans
-                &trans  &hml LSHIFT SV_TILDE  &hml LCTRL SV_STAR  &hml LALT SV_FSLH  &hml LCMD SV_EQUAL     &kp SV_AMPS        &kp SV_HASH   &kp SV_LPAR   &kp SV_RPAR   &kp SV_SEMI  &kp SV_QMARK  &trans
-                &trans  &kp SV_BSLH           &kp SV_PLUS         &kp SV_LBKT        &kp SV_RBKT            &kp SV_PRCNT       &kp SV_AT     &kp SV_COLON  &kp SV_COMMA  &kp SV_DOT   &kp SV_MINUS  &trans
-                                                                  &trans             &trans                 &trans             &trans        &trans        &trans
+                &none  &none                 &kp SV_LT           &kp SV_GT          &kp SV_BSLH         &kp SV_PIPE        &kp SV_CARET  &kp SV_LBRC        &kp SV_RBRC        &kp SV_DLLR         &none                 &none
+                &none  &hml LSHIFT SV_TILDE  &hml LCTRL SV_STAR  &hml LALT SV_FSLH  &hml LCMD SV_EQUAL  &kp SV_AMPS        &kp SV_HASH   &hmr RCMD SV_LPAR  &hmr RALT SV_RPAR  &hmr RCTRL SV_EXCL  &hmr RSHIFT SV_QMARK  &none
+                &none  &none                 &kp SV_PLUS         &kp SV_LBKT        &kp SV_RBKT         &kp SV_PRCNT       &kp SV_AT     &kp SV_GRAVE       &kp SV_SEMI        &kp SV_COLON        &kp SV_UNDER          &none
+                                                                 &trans             &trans              &trans             &trans        &trans             &trans
             >;
         };
 
         num_layer {
             display-name = "NUM";
             bindings = <
-                &trans  &trans      &trans     &trans     &trans    &trans      &trans  &kp N7        &kp N8        &kp N9         &trans          &trans
-                &trans  &kp LSHIFT  &kp LCTRL  &kp LALT   &kp LCMD  &trans      &trans  &hmr RCMD N4  &hmr RALT N5  &hmr RCTRL N6  &hmr RSHIFT N0  &trans
-                &trans  &trans      &trans     &trans     &trans    &trans      &trans  &kp N1        &kp N2        &kp N3         &trans          &trans
-                                               &trans     &trans    &trans      &trans  &trans        &trans
+                &none  &none       &none      &none     &none     &none       &none   &kp N7  &kp N8  &kp N9  &none   &none
+                &none  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LCMD  &none       &none   &kp N4  &kp N5  &kp N6  &kp N0  &none
+                &none  &none       &none      &none     &none     &none       &none   &kp N1  &kp N2  &kp N3  &none   &none
+                                              &trans    &trans    &trans      &trans  &trans  &trans
             >;
         };
 
         nav_layer {
             display-name = "NAV";
             bindings = <
-                &trans  &trans      &trans     &trans     &trans     &trans      &trans   &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &trans
-                &trans  &kp LSHIFT  &kp LCTRL  &kp LALT   &kp LCMD   &trans      &trans   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans  &mkp MB4    &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp MB5    &trans   &trans     &trans     &trans     &trans     &trans
-                                               &trans     &trans     &trans      &trans   &trans     &kp DEL
+                &none  &none       &kp C_PREV  &kp C_PP                           &kp C_NEXT                              &kp C_VOL_UP       &none   &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &none
+                &none  &kp LSHIFT  &kp LCTRL   &kp LALT                           &kp LCMD                                &kp C_MUTE         &none   &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &none
+                &none  &kp BRI_DN  &kp BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS  &kp C_VOL_DN       &none   &none     &none      &none      &none      &none
+                                               &trans                             &trans                                  &trans             &trans  &trans    &lt SYM DEL
             >;
+        };
+
+        fn_layer {
+            display-name = "FUNC";
+            bindings = <
+                &none  &none       &none      &none     &none       &none        &none   &kp F7      &kp F8  &kp F9  &kp F10  &none
+                &none  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LCMD    &none        &none   &kp F4      &kp F5  &kp F6  &kp F11  &none
+                &none  &none       &none      &none     &none       &none        &none   &kp F1      &kp F2  &kp F3  &kp F12  &none
+                                              &none     &mo CONFIG  &none        &none   &mo CONFIG  &none   
+             >;
+        };
+
+        conf_layer {
+            display-name = "CONFIG";
+            bindings = <
+                &none        &none  &none  &none  &none  &none  &none        &bt_profile1  &bt_profile2  &bt_profile3  &bt_profile4  &bt_profile5  &none           &bt BT_CLR
+                &sys_reset   &none  &none  &none  &none  &none  &none        &out OUT_USB  &out OUT_BLE  &none         &none         &none         &none           &sys_reset
+                &bootloader  &none  &none  &none  &none  &none  &none        &none         &none         &none         &none         &none         &studio_unlock  &bootloader
+                                                  &none  &none  &none        &none         &none         &none   
+             >;
         };
 
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-                &trans  &trans    &trans     &trans      &trans     &trans      &trans     &trans     &trans     &trans     &trans    &trans
-                &trans  &mkp MB4  &mkp RCLK  &mkp MCLK   &mkp LCLK  &mkp MB5    &mkp MB4   &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MB5  &trans
-                &trans  &trans    &trans     &trans      &trans     &trans      &trans     &trans     &trans     &trans     &trans    &trans
-                                             &trans      &trans     &trans      &trans     &trans     &trans
+                &none  &none     &none      &none      &none      &none         &none     &none      &none      &none      &none     &none
+                &none  &mkp MB4  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp MB5      &mkp MB4  &mkp LCLK  &mkp MCLK  &mkp RCLK  &mkp MB5  &none
+                &none  &none     &none      &none      &none      &none         &none     &none      &none      &none      &none     &none
+                                            &trans     &trans     &trans        &trans    &trans     &trans
             >;
-        };
-
-        fn_layer {
-            display-name = "FN";
-            bindings = <
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG  &trans        &kp F7  &kp F8  &kp F9  &kp F10  &trans
-                &trans        &kp LSHIFT    &kp LCTRL     &kp LALT      &kp LCMD      &trans        &trans        &kp F4  &kp F5  &kp F6  &kp F11  &trans
-                &trans        &trans        &trans        &trans        &trans        &trans        &trans        &kp F1  &kp F2  &kp F3  &kp F12  &trans
-                                            &none         &none         &none         &none         &none         &none   
-             >;
         };
     };
 };
