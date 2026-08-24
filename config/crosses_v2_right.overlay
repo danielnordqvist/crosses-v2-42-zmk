@@ -1,0 +1,5 @@
+&zip_central_ball {
+    cursor {
+        input-processors = <&zip_temp_layer 4 1000>;
+    };
+};
