@@ -258,10 +258,10 @@
         conf_layer {
             display-name = "CONFIG";
             bindings = <
-                &none        &none  &none  &none  &none  &none  &none        &bt_profile1  &bt_profile2  &bt_profile3  &bt_profile4  &bt_profile5  &none           &bt BT_CLR
-                &sys_reset   &none  &none  &none  &none  &none  &none        &out OUT_USB  &out OUT_BLE  &none         &none         &none         &none           &sys_reset
-                &bootloader  &none  &none  &none  &none  &none  &none        &none         &none         &none         &none         &none         &studio_unlock  &bootloader
-                                                  &none  &none  &none        &none         &none         &none   
+                &none        &none  &none  &none  &none  &none        &bt_profile1  &bt_profile2  &bt_profile3  &bt_profile4  &bt_profile5    &bt BT_CLR
+                &sys_reset   &none  &none  &none  &none  &none        &out OUT_USB  &out OUT_BLE  &none         &none         &none           &sys_reset
+                &bootloader  &none  &none  &none  &none  &none        &none         &none         &none         &none         &studio_unlock  &bootloader
+                                           &none  &none  &none        &none         &none         &none   
              >;
         };
 
