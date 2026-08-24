@@ -132,10 +132,10 @@ layers:
   NAV:
   - {type: none}
   - {type: none}
-  - PREV
-  - PP
-  - NEXT
-  - VOL UP
+  - $$mdi:skip-previous$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-next$$
+  - $$mdi:volume-plus$$
   - {type: none}
   - HOME
   - $$mdi:transfer-down$$
@@ -147,7 +147,7 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  - MUTE
+  - $$mdi:volume-mute$$
   - {type: none}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -155,11 +155,11 @@ layers:
   - $$mdi:arrow-right-bold$$
   - {type: none}
   - {type: none}
-  - Ctl+BRI DN
-  - Ctl+BRI UP
-  - $$mdi:view-quilt$$
+  - $$mdi:brightness-5$$
+  - $$mdi:brightness-7$$
+  - $$mdi:view-dashboard-outline$$
   - $$mdi:apps$$
-  - VOL DN
+  - $$mdi:volume-minus$$
   - {type: none}
   - {type: none}
   - {type: none}
@@ -171,7 +171,7 @@ layers:
   - {type: held}
   - {type: held alternate}
   - {type: none}
-  - {t: DEL, h: SYM}
+  - {t: '$$mdi:delete$$', h: SYM}
   FUNC:
   - {type: none}
   - {type: none}
@@ -222,25 +222,25 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
-  - '&bt_profile1'
-  - '&bt_profile2'
-  - '&bt_profile3'
-  - '&bt_profile4'
-  - '&bt_profile5'
+  - {h: '1', s: '$$mdi:bluetooth-connect$$'}
+  - {h: '2', s: '$$mdi:bluetooth-connect$$'}
+  - {h: '3', s: '$$mdi:bluetooth-connect$$'}
+  - {h: '4', s: '$$mdi:bluetooth-connect$$'}
+  - {h: '5', s: '$$mdi:bluetooth-connect$$'}
   - $$mdi:bluetooth-off$$
-  - '&sys_reset'
+  - {t: '$$mdi:restart$$', h: reset}
   - {type: none}
   - {type: none}
   - {type: none}
   - {type: none}
   - {type: none}
-  - OUT USB
-  - OUT BLE
+  - {t: '$$mdi:usb$$', h: USB}
+  - {t: '$$mdi:bluetooth$$', h: BLE}
   - {type: none}
   - {type: none}
   - {type: none}
-  - '&sys_reset'
-  - '&bootloader'
+  - {t: '$$mdi:restart$$', h: reset}
+  - {t: '$$mdi:chip$$', h: bootloader}
   - {type: none}
   - {type: none}
   - {type: none}
@@ -251,7 +251,7 @@ layers:
   - {type: none}
   - {type: none}
   - {t: '$$mdi:lock-open$$', h: unlock}
-  - '&bootloader'
+  - {t: '$$mdi:chip$$', h: bootloader}
   - {type: none}
   - {type: held}
   - {type: none}
