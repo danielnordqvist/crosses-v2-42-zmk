@@ -97,6 +97,26 @@ parse_config:
       shifted: $$mdi:bluetooth-connect$$
       tap: ""
       hold: 5
+    "&bt_profile1":
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
+      hold: 1
+    "&bt_profile2":
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
+      hold: 2
+    "&bt_profile3":
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
+      hold: 3
+    "&bt_profile4":
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
+      hold: 4
+    "&bt_profile5":
+      shifted: $$mdi:bluetooth-connect$$
+      tap: ""
+      hold: 5
     "&mkp LCLK":
       tap: $$mdi:mouse-left-click$$
       hold: "left"
@@ -139,7 +159,28 @@ parse_config:
     '&kp LG(N)': $$mdi:open-in-new$$
     '&kp LS(TAB)': $$mdi:keyboard-tab-reverse$$
     '&kp C_AC_DESKTOP_SHOW_ALL_APPLICATIONS': $$mdi:apps$$
-    '&kp C_AC_DESKTOP_SHOW_ALL_WINDOWS': $$mdi:view-quilt$$
+    '&kp C_AC_DESKTOP_SHOW_ALL_WINDOWS': $$mdi:view-dashboard-outline$$
+    '&kp C_MUTE': $$mdi:volume-mute$$
+    '&kp C_VOL_UP': $$mdi:volume-plus$$
+    '&kp C_VOL_DN': $$mdi:volume-minus$$
+    '&kp BRI_DN': $$mdi:brightness-5$$
+    '&kp BRI_UP': $$mdi:brightness-7$$
+    '&kp C_PREV': $$mdi:skip-previous$$
+    '&kp C_NEXT': $$mdi:skip-next$$
+    '&kp C_PP': $$mdi:play-pause$$
+    '&sys_reset':
+      tap: $$mdi:restart$$
+      hold: "reset"
+    '&bootloader':
+      tap: $$mdi:chip$$
+      hold: "bootloader"
+    '&out OUT_USB':
+      tap: $$mdi:usb$$
+      hold: "USB"
+    '&out OUT_BLE':
+      tap: $$mdi:bluetooth$$
+      hold: "BLE"
+
   sticky_label: $$mdi:gesture-tap-hold$$
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -231,6 +272,7 @@ parse_config:
     TAB: $$mdi:keyboard-tab$$
     SPACE: $$mdi:keyboard-space$$
     BSPC: $$mdi:backspace$$
+    DEL: $$mdi:delete$$
     LCTRL: $$mdi:apple-keyboard-control$$
     LALT: $$mdi:apple-keyboard-option$$
     LSHIFT: $$mdi:apple-keyboard-shift$$
@@ -249,6 +291,7 @@ parse_config:
     PG_DN: $$mdi:transfer-down$$
     BT_CLR: $$mdi:bluetooth-off$$
     BT_SEL: $$mdi:bluetooth-connect$$
+    TMUX: $$mdi:terminal$$
 
     A_RING: 'Å'
     A_UMLAUT: 'Ä'
