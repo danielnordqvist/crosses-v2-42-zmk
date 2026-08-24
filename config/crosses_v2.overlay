@@ -1,10 +1,8 @@
-
-
 // Right (central) ball. Runs on the central via trackball_central_listener.
 // Orientation = X+Y invert in every mode (matches prior cursor behavior).
 // Scroll Down reuses orientation with Y un-inverted (net X invert), which
 // is the opposite wheel direction from Scroll Up.
-&zip_central_ball: {
+&zip_central_ball {
     compatible = "zmk,input-processor-pipeline-switch";
     #input-processor-cells = <0>;
     persistent;
