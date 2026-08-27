@@ -5,10 +5,10 @@ layers:
   - Q
   - W
   - F
-  - P
+  - {t: P, h: SCROLL}
   - B
   - J
-  - L
+  - {t: L, h: SCROLL}
   - U
   - Y
   - Å
@@ -267,6 +267,49 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {t: '$$mdi:mouse$$', h: back}
+  - {t: '$$mdi:mouse-right-click$$', h: right}
+  - {t: '$$mdi:mouse$$', h: middle}
+  - {t: '$$mdi:mouse-left-click$$', h: left}
+  - {t: '$$mdi:mouse$$', h: fwd}
+  - {t: '$$mdi:mouse$$', h: back}
+  - {t: '$$mdi:mouse-left-click$$', h: left}
+  - {t: '$$mdi:mouse$$', h: middle}
+  - {t: '$$mdi:mouse-right-click$$', h: right}
+  - {t: '$$mdi:mouse$$', h: fwd}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  SCROLL:
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: held}
+  - {type: none}
+  - {type: none}
+  - {type: held alternate}
   - {type: none}
   - {type: none}
   - {type: none}
