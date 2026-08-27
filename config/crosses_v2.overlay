@@ -1,6 +1,5 @@
-trackball_peripheral_listener {
+&trackball_peripheral_listener {
     compatible = "zmk,input-listener";
-    status = "disabled";
     scroller {
         layers = <7>;
     }
@@ -8,10 +7,9 @@ trackball_peripheral_listener {
 };
 
 //left hand trackball
-trackball_central_listener {
+&trackball_central_listener {
     compatible = "zmk,input-listener";
     scroller {
         layers = <7>;
     }
-    status = "disabled";
 };
