@@ -1,7 +1,6 @@
 &zip_periph_ball {
     cursor {
         label = "Cursor";
-        //layers = <7>;
         input-processors = <&zip_report_rate_limit 2>;
     };
 

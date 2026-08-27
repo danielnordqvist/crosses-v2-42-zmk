@@ -2,7 +2,7 @@
     compatible = "zmk,input-listener";
     scroller {
         layers = <7>;
-    }
+    };
     device = <&trackball_peripheral_split>;
 };
 
@@ -11,5 +11,5 @@
     compatible = "zmk,input-listener";
     scroller {
         layers = <7>;
-    }
+    };
 };
