@@ -18,7 +18,7 @@
 
     scroll_down {
         label = "Scroll Down";
-        layers = <7>;
+        //layers = <7>;
         input-processors
             = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>
             , <&zip_xy_to_scroll_mapper>
