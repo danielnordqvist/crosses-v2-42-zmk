@@ -5,7 +5,7 @@ layers:
   - Q
   - W
   - F
-  - '&pswitchr 1 0'
+  - '&pipe_switch_r 1 0'
   - B
   - J
   - {t: L, h: SCROLL}
