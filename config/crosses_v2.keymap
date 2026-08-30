@@ -188,6 +188,12 @@
             bindings = <&out OUT_BLE &bt BT_SEL 4>;
             label = "BT_PROFILE5";
         };
+
+        right_scroll: right_scroll {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&pipe_switch_r 1 0 >;
+        };
     };
 
     conditional_layers {
@@ -209,7 +215,7 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-                &none     &kp Q          &kp W         &kp F        &pipe_switch 0 0   &pipe_switch_r 1 0           &pipe_switch 0 0     &pipe_switch_r 1 0    &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
+                &none     &kp Q          &kp W         &kp F        &pipe_switch 0 0   &right_scroll           &pipe_switch 0 0     &pipe_switch_r 1 0    &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
                 &none     &hml LSHIFT A  &hml LCTRL R  &hml LALT S  &hml LCMD T     &kp G             &kp M        &hmr RCMD N    &hmr RALT E   &hmr RCTRL I  &hmr RSHIFT O  &kp SV_O_UMLAUT
                 &none     &kp Z          &kp X         &kp C        &kp D           &kp V             &kp K        &kp H          &kp SV_COMMA  &kp SV_DOT    &kp SV_MINUS   &sqt_quot
                                                        &lt SYM ESC  &lt NUM TAB     &lt NAV TMUX      &lt NAV RET  &lt NUM SPACE  &lt SYM BSPC
