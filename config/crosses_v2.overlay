@@ -5,33 +5,28 @@
 / {
     behaviors {
         /* 
-           1. Create the momentary swap state logic.
-           - On Press: Switches Left to Pointer (0), Right to Scroll (1), activates Layer.
-           - On Release: Taps Left to Scroll (1), Right to Pointer (0), deactivates Layer.
+           1. Create a master switch behavior that controls BOTH trackballs simultaneously.
+           When triggered via hold-tap, ZMK sends state '1' on press, 
+           and cleanly resets to state '0' when released.
         */
-        tb_momentary_swap: tb_momentary_swap {
-            compatible = "zmk,behavior-tri-state";
-            #binding-cells = <0>;
-            bindings 
-                = <&pipe_switch 0 0>           // Press 1: Left -> Pointer
-                , <&pipe_switch_r 1 0>         // Press 2: Right -> Scroll Up
-                , <&mo MOUSE_LAYER_INDEX>      // Press 3: Turn on Mouse Layer
-                , <&pipe_switch 1 0>           // Release 1: Left back to Scroll Up
-                , <&pipe_switch_r 0 0>         // Release 2: Right back to Pointer
-                ;
+        my_dual_swap: my_dual_swap {
+            compatible = "zmk,behavior-pipeline-switch";
+            #binding-cells = <2>; // Expects: <Hold_State Release_State>
+            switches = <&zip_periph_ball>, <&zip_central_ball>;
         };
 
         /* 
-           2. Wrap it inside a normal hold-tap behavior.
-           - Hold: Fires our Tri-State macro wrapper.
-           - Tap: Outputs your clean alpha keypress code.
+           2. Combine everything into a custom Hold-Tap behavior.
+           - On Hold: Triggers 'my_dual_swap' (to swap the trackballs) 
+                      AND forces a momentary layer switch (&mo) via a nested call.
+           - On Tap: Outputs your clean alpha keypress code.
         */
         z_tb_swap: z_tb_swap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";         
             tapping-term-ms = <200>;           
-            bindings = <&tb_momentary_swap>, <&kp>;
+            bindings = <&my_dual_swap>, <&kp>;
         };
     };
 };
