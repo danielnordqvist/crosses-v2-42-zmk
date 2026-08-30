@@ -6,7 +6,7 @@ layers:
   - W
   - F
   - {t: '$$mdi:toggle-switch$$', h: toggle}
-  - '&pipe_switch_r 1 0'
+  - '&right_scroll'
   - {t: '$$mdi:toggle-switch$$', h: toggle}
   - '&pipe_switch_r 1 0'
   - U
