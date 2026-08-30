@@ -1,44 +1,37 @@
 /* config/crosses.overlay */
 
-/* Define your Mouse Layer index number here */
 #define MOUSE_LAYER_INDEX 7
 
 / {
     behaviors {
-        /*
-           Create a simple hold-tap key:
-           - Hold: Momentarily switch to the Mouse Layer
-           - Tap: Outputs your standard alpha key (e.g., Z)
+        /* 
+           1. Create the momentary swap state logic.
+           - On Press: Switches Left to Pointer (0), Right to Scroll (1), activates Layer.
+           - On Release: Taps Left to Scroll (1), Right to Pointer (0), deactivates Layer.
+        */
+        tb_momentary_swap: tb_momentary_swap {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings 
+                = <&pipe_switch 0 0>           // Press 1: Left -> Pointer
+                , <&pipe_switch_r 1 0>         // Press 2: Right -> Scroll Up
+                , <&mo MOUSE_LAYER_INDEX>      // Press 3: Turn on Mouse Layer
+                , <&pipe_switch 1 0>           // Release 1: Left back to Scroll Up
+                , <&pipe_switch_r 0 0>         // Release 2: Right back to Pointer
+                ;
+        };
+
+        /* 
+           2. Wrap it inside a normal hold-tap behavior.
+           - Hold: Fires our Tri-State macro wrapper.
+           - Tap: Outputs your clean alpha keypress code.
         */
         z_tb_swap: z_tb_swap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";         
             tapping-term-ms = <200>;           
-            bindings = <&mo>, <&kp>; // Hold activates &mo (Layer), Tap activates &kp
-        };
-    };
-
-    /* ==============================================================
-       USE THE DEFINED TRACKBALL LISTENERS AS LAYER EVENT SENSORS
-       ============================================================== */
-    /* 
-       We target the pre-existing trackball listeners and tell them to 
-       dynamically look at our Mouse Layer index!
-    */
-    &left_trackball_listener {
-        scroller {
-            layers = <MOUSE_LAYER_INDEX>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        };
-    };
-
-    &right_trackball_listener {
-        scroller {
-            layers = <MOUSE_LAYER_INDEX>;
-            // Empty input-processor forces standard pointer passthrough instead of scroll 
-            // when this specific layer becomes active.
-            input-processors = <>; 
+            bindings = <&tb_momentary_swap>, <&kp>;
         };
     };
 };
