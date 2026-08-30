@@ -5,7 +5,7 @@ layers:
   - Q
   - W
   - F
-  - {t: P, h: SCROLL}
+  - '&z_tb_swap 0 P'
   - B
   - J
   - {t: L, h: SCROLL}
@@ -306,10 +306,10 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
   - {type: held}
-  - {type: none}
-  - {type: none}
-  - {type: held alternate}
   - {type: none}
   - {type: none}
   - {type: none}
