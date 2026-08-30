@@ -5,7 +5,7 @@ layers:
   - Q
   - W
   - F
-  - '&z_tb_swap 0 P'
+  - '&z_tb_swap 1 P'
   - B
   - J
   - {t: L, h: SCROLL}
