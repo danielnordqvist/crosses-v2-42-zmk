@@ -1,15 +1,45 @@
-&trackball_peripheral_listener {
-    compatible = "zmk,input-listener";
-    scroller {
-        layers = <7>;
-    };
-    device = <&trackball_peripheral_split>;
-};
+/ {
+    behaviors {
+        // Macro triggered when holding down the key:
+        // Left switches to Pointer (0), Right switches to Scroll Up (1)
+        tb_hold_macro: tb_hold_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings 
+                = <&macro_press &pipe_switch 0 0>   
+                , <&macro_press &pipe_switch_r 1 0> 
+                , <&macro_press &mo 6>
+                ;
+        };
 
-//left hand trackball
-&trackball_central_listener {
-    compatible = "zmk,input-listener";
-    scroller {
-        layers = <7>;
+        // Macro triggered when releasing the key:
+        // Returns to defaults: Left is Scroll Up (1), Right is Pointer (0)
+        tb_release_macro: tb_release_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings 
+                = <&macro_release &pipe_switch 0 0>
+                , <&macro_release &pipe_switch_r 1 0>
+                , <&macro_release &mo 6>
+                , <&macro_tap &pipe_switch 1 0>     
+                , <&macro_tap &pipe_switch_r 0 0>   
+                ;
+        };
+
+        // Combine hold & release macros into a cohesive toggle action
+        tb_momentary_swap: tb_momentary_swap {
+            compatible = "zmk,behavior-macro-one-shot";
+            #binding-cells = <0>;
+            bindings = <&tb_hold_macro>, <&tb_release_macro>;
+        };
+
+        // Hold to temporarily swap roles, Tap to output a standard keypress
+        z_tb_swap: z_tb_swap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";         
+            tapping-term-ms = <200>;           
+            bindings = <&tb_momentary_swap>, <&kp>;
+        };
     };
 };
