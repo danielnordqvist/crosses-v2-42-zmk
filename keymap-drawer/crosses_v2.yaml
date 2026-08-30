@@ -5,7 +5,7 @@ layers:
   - Q
   - W
   - F
-  - '&pipe_switch_r 1 0'
+  - {t: '$$mdi:toggle-switch$$', h: toggle}
   - B
   - J
   - {t: L, h: SCROLL}
