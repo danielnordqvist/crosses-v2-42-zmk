@@ -5,10 +5,10 @@ layers:
   - Q
   - W
   - F
-  - {t: '$$mdi:toggle-switch$$', h: toggle}
-  - '&right_scroll'
-  - {t: '$$mdi:toggle-switch$$', h: toggle}
-  - '&pipe_switch_r 1 0'
+  - P
+  - B
+  - J
+  - L
   - U
   - Y
   - Å
