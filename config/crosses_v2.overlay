@@ -1,6 +1,7 @@
 // Right hand trackball listener configuration
     &trackball_central_listener {
         status = "okay";
+        device = <&trackball_central>;
         
         // This is your default cursor behavior when layer 1 is NOT active
         input-processors
