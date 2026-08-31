@@ -149,7 +149,7 @@
             bindings = <&sk LSHIFT>, <&caps_word>;
             mods = <(MOD_LSFT)>;
         };
-
+        /*
         right_scroll: right_scroll {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -160,6 +160,15 @@
                 , <&pipe_switch_r 0 0>
             ;
             label = "RIGHT_SCROLL";
+        };
+        */
+
+        r_scroll: right_scroll_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <0>; // Trigger instantly on touch
+            bindings = <&pipe_switch_r>, <&pipe_switch_r>;
         };
         
         /*
@@ -221,7 +230,7 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-                &right_scroll     &kp Q          &kp W         &kp F        &kp P           &kp B             &kp J        &kp L          &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
+                &r_scroll 1 0     &kp Q          &kp W         &kp F        &kp P           &kp B             &kp J        &kp L          &kp U         &kp Y         &kp SV_A_RING  &kp SV_A_UMLAUT
                 &none     &hml LSHIFT A  &hml LCTRL R  &hml LALT S  &hml LCMD T     &kp G             &kp M        &hmr RCMD N    &hmr RALT E   &hmr RCTRL I  &hmr RSHIFT O  &kp SV_O_UMLAUT
                 &none     &kp Z          &kp X         &kp C        &kp D           &kp V             &kp K        &kp H          &kp SV_COMMA  &kp SV_DOT    &kp SV_MINUS   &sqt_quot
                                                        &lt SYM ESC  &lt NUM TAB     &lt NAV TMUX      &lt NAV RET  &lt NUM SPACE  &lt SYM BSPC
