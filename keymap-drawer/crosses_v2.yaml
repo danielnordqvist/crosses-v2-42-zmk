@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: crosses_v2, layout_name: gggw_crosses_42_layout}
 layers:
   BASE:
-  - '&right_scroll'
+  - {t: '&pipe_switch_r', h: '&pipe_switch_r 1'}
   - Q
   - W
   - F
