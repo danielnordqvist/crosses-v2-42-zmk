@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: crosses_v2, layout_name: gggw_crosses_42_layout}
 layers:
   BASE:
-  - {t: '&pipe_switch_r', h: '&pipe_switch_r 1'}
+  - scroll
   - Q
   - W
   - F
@@ -282,6 +282,49 @@ layers:
   - {t: '$$mdi:mouse$$', h: middle}
   - {t: '$$mdi:mouse-right-click$$', h: right}
   - {t: '$$mdi:mouse$$', h: fwd}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  scroll:
+  - {type: held}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
+  - {type: none}
   - {type: none}
   - {type: none}
   - {type: none}
