@@ -1,4 +1,4 @@
-/*
+/ {
 &zip_central_ball {
     cursor {
         label = "Cursor";
@@ -8,16 +8,13 @@
             , <&zip_report_rate_limit 4>;
     };
 }; 
-*/
+
 
 // Right hand trackball listener configuration
     &trackball_central_listener {
         status = "okay";        
         // This is your default cursor behavior when layer 1 is NOT active
-        input-processors
-          = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
-          , <&mouse_temp_layer 6 1000>
-          , <&zip_report_rate_limit 4>;
+       input-processors = <&zip_central_ball>;
 
         // When layer 1 is active, it intercepts the input and applies scroll rules instead
         scroller {
@@ -29,3 +26,4 @@
               , <&zip_report_rate_limit 16>;
         };
     };
+};
