@@ -1,11 +1,11 @@
 layout: {zmk_keyboard: crosses_v2, layout_name: gggw_crosses_42_layout}
 layers:
   BASE:
-  - scroll
+  - RSCROLL
   - Q
   - W
   - F
-  - P
+  - {t: P, h: RSCROLL}
   - B
   - J
   - L
@@ -301,11 +301,12 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
-  scroll:
+  RSCROLL:
   - {type: held}
   - {type: none}
   - {type: none}
   - {type: none}
+  - {type: held alternate}
   - {type: none}
   - {type: none}
   - {type: none}
@@ -314,17 +315,16 @@ layers:
   - {type: none}
   - {type: none}
   - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
-  - {type: none}
+  - {t: '$$mdi:mouse$$', h: back}
+  - {t: '$$mdi:mouse-right-click$$', h: right}
+  - {t: '$$mdi:mouse$$', h: middle}
+  - {t: '$$mdi:mouse-left-click$$', h: left}
+  - {t: '$$mdi:mouse$$', h: fwd}
+  - {t: '$$mdi:mouse$$', h: back}
+  - {t: '$$mdi:mouse-left-click$$', h: left}
+  - {t: '$$mdi:mouse$$', h: middle}
+  - {t: '$$mdi:mouse-right-click$$', h: right}
+  - {t: '$$mdi:mouse$$', h: fwd}
   - {type: none}
   - {type: none}
   - {type: none}
